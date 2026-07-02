@@ -8,7 +8,11 @@ import '../vendor/aurora/themes.css'
 
 import App from './App.tsx'
 
+//theme aurora
+document.body.setAttribute("data-theme", "aurora-light");
+
 createRoot(document.getElementById('root')!).render(
+  
   <StrictMode>
     <App />
   </StrictMode>,
