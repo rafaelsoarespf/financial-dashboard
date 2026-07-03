@@ -37,4 +37,28 @@ export const transactions = [
     category: "Income",
     amount: "$5,300.00",
   },
+  {
+    date: "Jul 01",
+    description: "Groceries",
+    category: "Food",
+    amount: "-$120.00",
+  },
+  {
+    date: "Jun 30",
+    description: "Internet",
+    category: "Utilities",
+    amount: "-$80.00",
+  },
+  {
+    date: "Jun 29",
+    description: "Freelance Project",
+    category: "Income",
+    amount: "$850.00",
+  },
+  {
+    date: "Jun 28",
+    description: "Electric Bill",
+    category: "Utilities",
+    amount: "-$140.00",
+  },
 ];

@@ -1,49 +1,45 @@
+//css ------------------------------------------------------------
 import "./Dashboard.css";
-//components
+//data -----------------------------------------------------------
+import { summary, transactions } from "../data/financialData";
+//components -----------------------------------------------------
 import OverviewChart from "./OverviewChart";
+
 
 function Dashboard() {
   return (
     <section className="dashboard">
+      {/* header --------------------------------------------------*/}
       <header className="dashboard__header mb-lg">
         <h1>Financial Dashboard</h1>
         <p>Monitor your income, expenses and overall financial performance.</p>
       </header>
 
+      {/* section --------------------------------------------------*/}
       <section className="grid-4 gap mb-lg">
-        <article className="card hover-lift hover-border">
-          <span className="subtitle">Total Balance</span>
-          <p>$12,450.00</p>
-          <small className="text-accent">↑ +12.4% from last month</small>
-        </article>
+        {summary.map((item) => (
+          //article
+          <article key={item.title} className="card hover-lift hover-border">
+            <span className="subtitle">{item.title}</span>
+            <p>{item.value}</p>
 
-        <article className="card hover-lift hover-border">
-          <span className="subtitle">Monthly Income</span>
-          <p>$5,300.00</p>
-          <small className="text-accent">↑ +8.1% this month</small>
-        </article>
+            <small className={item.trend.startsWith("-") ? "" : "text-accent"}>
+              {item.trend.startsWith("-") ? "↓ " : "↑ "} {item.trend}
+            </small>
 
-        <article className="card hover-lift hover-border">
-          <span className="subtitle">Monthly Expenses</span>
-          <p>$2,100.00</p>
-          <small>↓ -4.8% this month</small>
-        </article>
-
-        <article className="card hover-lift hover-border">
-          <span className="subtitle">Net Cash Flow</span>
-          <p>$3,200.00</p>
-          <small className="text-accent">Positive balance</small>
-        </article>
+          </article>
+        ))}
       </section>
 
+      {/* section --------------------------------------------------*/}
       <section className="card mb-lg">
         <h2>Monthly Financial Overview</h2>
         <OverviewChart />
       </section>
 
+      {/* section --------------------------------------------------*/}
       <section className="card">
         <h2>Latest Transactions</h2>
-
         <table>
           <thead>
             <tr>
@@ -53,42 +49,15 @@ function Dashboard() {
               <th>Amount</th>
             </tr>
           </thead>
-
           <tbody>
-            <tr>
-              <td>Jul 02</td>
-              <td>Salary</td>
-              <td>Income</td>
-              <td>$5,300.00</td>
-            </tr>
-
-            <tr>
-              <td>Jul 01</td>
-              <td>Groceries</td>
-              <td>Food</td>
-              <td>-$120.00</td>
-            </tr>
-
-            <tr>
-              <td>Jun 30</td>
-              <td>Internet</td>
-              <td>Utilities</td>
-              <td>-$80.00</td>
-            </tr>
-
-            <tr>
-              <td>Jun 29</td>
-              <td>Freelance Project</td>
-              <td>Income</td>
-              <td>$850.00</td>
-            </tr>
-
-            <tr>
-              <td>Jun 28</td>
-              <td>Electric Bill</td>
-              <td>Utilities</td>
-              <td>-$140.00</td>
-            </tr>
+            {transactions.map((transaction) => (
+              <tr key={`${transaction.date}-${transaction.description}`}>
+                <td>{transaction.date}</td>
+                <td>{transaction.description}</td>
+                <td>{transaction.category}</td>
+                <td>{transaction.amount}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
