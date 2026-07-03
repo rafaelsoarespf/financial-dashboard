@@ -1,4 +1,6 @@
 import "./Dashboard.css";
+//components
+import OverviewChart from "./OverviewChart";
 
 function Dashboard() {
   return (
@@ -36,7 +38,7 @@ function Dashboard() {
 
       <section className="card mb-lg">
         <h2>Monthly Financial Overview</h2>
-        <p>Financial charts will be displayed here.</p>
+        <OverviewChart />
       </section>
 
       <section className="card">

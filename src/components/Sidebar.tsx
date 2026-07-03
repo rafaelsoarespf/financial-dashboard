@@ -29,19 +29,9 @@ function Sidebar() {
 
   return (
     <>
-      <button
-        ref={toggleRef}
-        className="sidebar__toggle"
-        aria-label="Open menu"
-        onClick={() => setIsOpen((open) => !open)}
-      >
-        ☰
-      </button>
+      <button ref={toggleRef} className="sidebar__toggle" aria-label="Open menu" onClick={() => setIsOpen((open) => !open)}>☰</button>
 
-      <aside
-        ref={sidebarRef}
-        className={`sidebar ${isOpen ? "active" : ""}`}
-      >
+      <aside ref={sidebarRef} className={`sidebar ${isOpen ? "active" : ""}`}>
         <div className="sidebar__header">
           <h2>Financial Dashboard</h2>
         </div>
