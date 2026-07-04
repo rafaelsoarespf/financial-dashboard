@@ -1,25 +1,73 @@
-export const summary = [
-  {
-    title: "Total Balance",
-    value: "$12,450.00",
-    trend: "+12.4% from last month",
-  },
-  {
-    title: "Monthly Income",
-    value: "$5,300.00",
-    trend: "+8.1% this month",
-  },
-  {
-    title: "Monthly Expenses",
-    value: "$2,100.00",
-    trend: "-4.8% this month",
-  },
-  {
-    title: "Net Cash Flow",
-    value: "$3,200.00",
-    trend: "Positive balance",
-  },
-];
+export const summary = {
+  "7d": [
+    {
+      title: "Total Balance",
+      value: "$2,450.00",
+      trend: "+4.2% this week",
+    },
+    {
+      title: "Weekly Income",
+      value: "$1,200.00",
+      trend: "+6.1% this week",
+    },
+    {
+      title: "Weekly Expenses",
+      value: "$850.00",
+      trend: "-2.8% this week",
+    },
+    {
+      title: "Net Cash Flow",
+      value: "$350.00",
+      trend: "Positive balance",
+    },
+  ],
+
+  "30d": [
+    {
+      title: "Total Balance",
+      value: "$8,900.00",
+      trend: "+8.7% this month",
+    },
+    {
+      title: "Monthly Income",
+      value: "$5,300.00",
+      trend: "+8.1% this month",
+    },
+    {
+      title: "Monthly Expenses",
+      value: "$2,100.00",
+      trend: "-4.8% this month",
+    },
+    {
+      title: "Net Cash Flow",
+      value: "$3,200.00",
+      trend: "Positive balance",
+    },
+  ],
+
+  "12m": [
+    {
+      title: "Total Balance",
+      value: "$12,450.00",
+      trend: "+12.4% from last year",
+    },
+    {
+      title: "Annual Income",
+      value: "$62,400.00",
+      trend: "+10.5% this year",
+    },
+    {
+      title: "Annual Expenses",
+      value: "$34,800.00",
+      trend: "-3.1% this year",
+    },
+    {
+      title: "Net Cash Flow",
+      value: "$27,600.00",
+      trend: "Positive balance",
+    },
+  ],
+};
 
 export const chartData = {
   "7d": [

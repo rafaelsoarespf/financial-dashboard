@@ -7,7 +7,7 @@ import type {Period} from "../types/period"
 
 function Dashboard() {
   const [period, setPeriod] = useState<Period>("7d");
-
+  const cards = summary[period];
 
   {/* return --------------------------------------------------*/}
   return (
@@ -20,7 +20,7 @@ function Dashboard() {
 
       {/* section --------------------------------------------------*/}
       <section className="grid-4 gap mb-lg">
-        {summary.map((item) => (
+        {cards.map((item) => (
           //article
           <article key={item.title} className="card hover-lift hover-border">
             <span className="subtitle">{item.title}</span>
