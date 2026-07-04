@@ -21,14 +21,33 @@ export const summary = [
   },
 ];
 
-export const chartData = [
-  { month: "Jan", income: 4000, expenses: 2400 },
-  { month: "Feb", income: 3000, expenses: 1398 },
-  { month: "Mar", income: 5200, expenses: 2800 },
-  { month: "Apr", income: 4700, expenses: 3100 },
-  { month: "May", income: 6100, expenses: 3500 },
-  { month: "Jun", income: 5300, expenses: 2100 },
-];
+export const chartData = {
+  "7d": [
+    { label: "Mon", income: 900, expenses: 350 },
+    { label: "Tue", income: 750, expenses: 420 },
+    { label: "Wed", income: 1100, expenses: 600 },
+    { label: "Thu", income: 800, expenses: 300 },
+    { label: "Fri", income: 1300, expenses: 700 },
+    { label: "Sat", income: 600, expenses: 450 },
+    { label: "Sun", income: 950, expenses: 500 },
+  ],
+
+  "30d": [
+    { label: "Week 1", income: 4200, expenses: 2200 },
+    { label: "Week 2", income: 3900, expenses: 1800 },
+    { label: "Week 3", income: 4600, expenses: 2500 },
+    { label: "Week 4", income: 5100, expenses: 2900 },
+  ],
+
+  "12m": [
+    { label: "Jan", income: 4000, expenses: 2400 },
+    { label: "Feb", income: 3000, expenses: 1398 },
+    { label: "Mar", income: 5200, expenses: 2800 },
+    { label: "Apr", income: 4700, expenses: 3100 },
+    { label: "May", income: 6100, expenses: 3500 },
+    { label: "Jun", income: 5300, expenses: 2100 },
+  ],
+};
 
 export const transactions = [
   {

@@ -1,12 +1,15 @@
-//css ------------------------------------------------------------
+import { useState } from "react";
 import "./Dashboard.css";
-//data -----------------------------------------------------------
 import { summary, transactions } from "../data/financialData";
-//components -----------------------------------------------------
 import OverviewChart from "./OverviewChart";
+import type {Period} from "../types/period"
 
 
 function Dashboard() {
+  const [period, setPeriod] = useState<Period>("7d");
+
+
+  {/* return --------------------------------------------------*/}
   return (
     <section className="dashboard">
       {/* header --------------------------------------------------*/}
@@ -33,8 +36,13 @@ function Dashboard() {
 
       {/* section --------------------------------------------------*/}
       <section className="card mb-lg">
-        <h2>Monthly Financial Overview</h2>
-        <OverviewChart />
+        <h2 className="mb-sm">Monthly Financial Overview</h2>
+        <div className="row mb-md">
+          <button className={period === "7d" ? "btn" : "btn-outline"} onClick={() => setPeriod("7d")}>Last 7 days</button>
+          <button className={period === "30d" ? "btn" : "btn-outline"} onClick={() => setPeriod("30d")}>Last 30 days</button>
+          <button className={period === "12m" ? "btn" : "btn-outline"} onClick={() => setPeriod("12m")}>Last 12 months</button>
+        </div>
+        <OverviewChart period={period}/>
       </section>
 
       {/* section --------------------------------------------------*/}

@@ -1,12 +1,19 @@
 import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, } from "recharts";
-import { chartData } from "../data/financialData.ts"
+import { chartData } from "../data/financialData"
+import type {Period} from "../types/period"
 
-function OverviewChart() {
+type OverviewChartProps = {
+  period: Period;
+};
+
+function OverviewChart({ period }: OverviewChartProps) {
+  const data = chartData[period];
+
   return (
     <ResponsiveContainer width="100%" height={320}>
-      <LineChart data={chartData} margin={{top: 20,right: 20,left: 0,bottom: 0,}}>
+      <LineChart data={data} margin={{top: 20,right: 20,left: 0,bottom: 0,}}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="month" />
+        <XAxis dataKey="label" />
         <YAxis />
         <Tooltip />
         <Legend />
