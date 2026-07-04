@@ -8,6 +8,7 @@ import type {Period} from "../types/period"
 function Dashboard() {
   const [period, setPeriod] = useState<Period>("7d");
   const cards = summary[period];
+  const currentTransactions = transactions[period];
 
   {/* return --------------------------------------------------*/}
   return (
@@ -58,7 +59,7 @@ function Dashboard() {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transaction) => (
+            {currentTransactions.map((transaction) => (
               <tr key={`${transaction.date}-${transaction.description}`}>
                 <td>{transaction.date}</td>
                 <td>{transaction.description}</td>

@@ -97,35 +97,103 @@ export const chartData = {
   ],
 };
 
-export const transactions = [
-  {
-    date: "Jul 02",
-    description: "Salary",
-    category: "Income",
-    amount: "$5,300.00",
-  },
-  {
-    date: "Jul 01",
-    description: "Groceries",
-    category: "Food",
-    amount: "-$120.00",
-  },
-  {
-    date: "Jun 30",
-    description: "Internet",
-    category: "Utilities",
-    amount: "-$80.00",
-  },
-  {
-    date: "Jun 29",
-    description: "Freelance Project",
-    category: "Income",
-    amount: "$850.00",
-  },
-  {
-    date: "Jun 28",
-    description: "Electric Bill",
-    category: "Utilities",
-    amount: "-$140.00",
-  },
-];
+export const transactions = {
+  "7d": [
+    {
+      date: "Jul 06",
+      description: "Coffee Shop",
+      category: "Food",
+      amount: "-$8.50",
+    },
+    {
+      date: "Jul 05",
+      description: "Salary",
+      category: "Income",
+      amount: "$1,200.00",
+    },
+    {
+      date: "Jul 04",
+      description: "Netflix",
+      category: "Entertainment",
+      amount: "-$15.99",
+    },
+    {
+      date: "Jul 03",
+      description: "Gas Station",
+      category: "Transport",
+      amount: "-$52.00",
+    },
+    {
+      date: "Jul 02",
+      description: "Freelance",
+      category: "Income",
+      amount: "$450.00",
+    },
+  ],
+
+  "30d": [
+    {
+      date: "Jul 02",
+      description: "Salary",
+      category: "Income",
+      amount: "$5,300.00",
+    },
+    {
+      date: "Jul 01",
+      description: "Groceries",
+      category: "Food",
+      amount: "-$120.00",
+    },
+    {
+      date: "Jun 30",
+      description: "Internet",
+      category: "Utilities",
+      amount: "-$80.00",
+    },
+    {
+      date: "Jun 29",
+      description: "Freelance Project",
+      category: "Income",
+      amount: "$850.00",
+    },
+    {
+      date: "Jun 28",
+      description: "Electric Bill",
+      category: "Utilities",
+      amount: "-$140.00",
+    },
+  ],
+
+  "12m": [
+    {
+      date: "Dec",
+      description: "Annual Salary",
+      category: "Income",
+      amount: "$62,400.00",
+    },
+    {
+      date: "Nov",
+      description: "Rent",
+      category: "Housing",
+      amount: "-$14,400.00",
+    },
+    {
+      date: "Oct",
+      description: "Travel",
+      category: "Leisure",
+      amount: "-$2,500.00",
+    },
+    {
+      date: "Sep",
+      description: "Freelance Projects",
+      category: "Income",
+      amount: "$9,800.00",
+    },
+    {
+      date: "Aug",
+      description: "Insurance",
+      category: "Health",
+      amount: "-$1,200.00",
+    },
+  ],
+};
