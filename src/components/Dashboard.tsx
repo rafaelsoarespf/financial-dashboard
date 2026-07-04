@@ -26,7 +26,7 @@ function Dashboard() {
             <span className="subtitle">{item.title}</span>
             <p>{item.value}</p>
 
-            <small className={item.trend.startsWith("-") ? "" : "text-accent"}>
+            <small className={item.trend.startsWith("-") ? "amount-expense" : "amount-income"}>
               {item.trend.startsWith("-") ? "↓ " : "↑ "} {item.trend}
             </small>
 
@@ -63,7 +63,7 @@ function Dashboard() {
                 <td>{transaction.date}</td>
                 <td>{transaction.description}</td>
                 <td>{transaction.category}</td>
-                <td>{transaction.amount}</td>
+                <td className={transaction.amount.startsWith("-")? "amount-expense" : "amount-income"}>{transaction.amount}</td>
               </tr>
             ))}
           </tbody>
