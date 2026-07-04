@@ -1,21 +1,28 @@
-export const summary = {
+import type { Period } from "../types/period";
+import type { SummaryItem } from "../types/summary";
+
+export const summary: Record<Period, SummaryItem[]> = {
   "7d": [
     {
+      id: "balance",
       title: "Total Balance",
       value: "$2,450.00",
       trend: "+4.2% this week",
     },
     {
+      id: "income",
       title: "Weekly Income",
       value: "$1,200.00",
       trend: "+6.1% this week",
     },
     {
+      id: "expenses",
       title: "Weekly Expenses",
       value: "$850.00",
       trend: "-2.8% this week",
     },
     {
+      id: "cashflow",
       title: "Net Cash Flow",
       value: "$350.00",
       trend: "Positive balance",
@@ -24,21 +31,25 @@ export const summary = {
 
   "30d": [
     {
+      id: "balance",
       title: "Total Balance",
       value: "$8,900.00",
       trend: "+8.7% this month",
     },
     {
+      id: "income",
       title: "Monthly Income",
       value: "$5,300.00",
       trend: "+8.1% this month",
     },
     {
+      id: "expenses",
       title: "Monthly Expenses",
       value: "$2,100.00",
       trend: "-4.8% this month",
     },
     {
+      id: "cashflow",
       title: "Net Cash Flow",
       value: "$3,200.00",
       trend: "Positive balance",
@@ -47,21 +58,25 @@ export const summary = {
 
   "12m": [
     {
+      id: "balance",
       title: "Total Balance",
       value: "$12,450.00",
       trend: "+12.4% from last year",
     },
     {
+      id: "income",
       title: "Annual Income",
       value: "$62,400.00",
       trend: "+10.5% this year",
     },
     {
+      id: "expenses",
       title: "Annual Expenses",
       value: "$34,800.00",
       trend: "-3.1% this year",
     },
     {
+      id: "cashflow",
       title: "Net Cash Flow",
       value: "$27,600.00",
       trend: "Positive balance",

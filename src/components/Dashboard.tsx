@@ -1,8 +1,15 @@
 import { useState } from "react";
 import "./Dashboard.css";
-import { summary, transactions } from "../data/financialData";
+//components
 import OverviewChart from "./OverviewChart";
-import type {Period} from "../types/period"
+//data
+import { summary, transactions } from "../data/financialData";
+//types
+import type { Period } from "../types/period";
+import type { SummaryItem } from "../types/summary";
+//icons
+import { Wallet, TrendingUp, TrendingDown, DollarSign, Briefcase, Utensils, Zap, Car, Film, Coffee, Home, HeartPulse, Plane } from "lucide-react";
+
 
 
 function Dashboard() {
@@ -10,7 +17,26 @@ function Dashboard() {
   const cards = summary[period];
   const currentTransactions = transactions[period];
 
-  {/* return --------------------------------------------------*/}
+  const summaryIcons = {
+    balance: Wallet,
+    income: TrendingUp,
+    expenses: TrendingDown,
+    cashflow: DollarSign,
+  } as const;
+
+  const categoryIcons = {
+    Income: Briefcase,
+    Food: Utensils,
+    Utilities: Zap,
+    Transport: Car,
+    Entertainment: Film,
+    Coffee: Coffee,
+    Housing: Home,
+    Health: HeartPulse,
+    Leisure: Plane,
+  } as const;
+
+  {/* return --------------------------------------------------*/ }
   return (
     <section className="dashboard">
       {/* header --------------------------------------------------*/}
@@ -21,18 +47,26 @@ function Dashboard() {
 
       {/* section --------------------------------------------------*/}
       <section className="grid-4 gap mb-lg">
-        {cards.map((item) => (
-          //article
-          <article key={item.title} className="card hover-lift hover-border">
-            <span className="subtitle">{item.title}</span>
-            <p>{item.value}</p>
+        {cards.map((item) => {
+          const Icon = summaryIcons[item.id];
+          const isExpense = item.trend.startsWith("-");
 
-            <small className={item.trend.startsWith("-") ? "amount-expense" : "amount-income"}>
-              {item.trend.startsWith("-") ? "↓ " : "↑ "} {item.trend}
-            </small>
+          return (
+            <article key={item.id} className="card hover-lift hover-border">
+              <div className="row justify-between align-center mb-sm">
+                <span className="subtitle">{item.title}</span>
+                <Icon size={20} />
+              </div>
 
-          </article>
-        ))}
+              <p>{item.value}</p>
+
+              <small className={isExpense ? "amount-expense" : "amount-income"}>
+                {isExpense ? "↓ " : "↑ "}
+                {item.trend}
+              </small>
+            </article>
+          );
+        })}
       </section>
 
       {/* section --------------------------------------------------*/}
@@ -43,7 +77,7 @@ function Dashboard() {
           <button className={period === "30d" ? "btn" : "btn-outline"} onClick={() => setPeriod("30d")}>Last 30 days</button>
           <button className={period === "12m" ? "btn" : "btn-outline"} onClick={() => setPeriod("12m")}>Last 12 months</button>
         </div>
-        <OverviewChart period={period}/>
+        <OverviewChart period={period} />
       </section>
 
       {/* section --------------------------------------------------*/}
@@ -62,9 +96,15 @@ function Dashboard() {
             {currentTransactions.map((transaction) => (
               <tr key={`${transaction.date}-${transaction.description}`}>
                 <td>{transaction.date}</td>
-                <td>{transaction.description}</td>
-                <td>{transaction.category}</td>
-                <td className={transaction.amount.startsWith("-")? "amount-expense" : "amount-income"}>{transaction.amount}</td>
+                <td><div className="row gap-sm">{(() => {
+                    const Icon = categoryIcons[transaction.category as keyof typeof categoryIcons];
+
+                    return Icon ? <Icon size={16} /> : null;
+                  })()}
+                  <span>{transaction.description}</span>
+                </div></td>
+                <td><span className="badge bg-accent center">{transaction.category}</span></td>
+                <td className={transaction.amount.startsWith("-") ? "amount-expense" : "amount-income"}>{transaction.amount}</td>
               </tr>
             ))}
           </tbody>
