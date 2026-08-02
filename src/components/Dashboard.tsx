@@ -6,7 +6,7 @@ import OverviewChart from "./OverviewChart";
 import { summary, transactions } from "../data/financialData";
 //types
 import type { Period } from "../types/period";
-import type { SummaryItem } from "../types/summary";
+//import type { SummaryItem } from "../types/summary";
 //icons
 import { Wallet, TrendingUp, TrendingDown, DollarSign, Briefcase, Utensils, Zap, Car, Film, Coffee, Home, HeartPulse, Plane } from "lucide-react";
 
