@@ -38,13 +38,9 @@ function Sidebar() {
 
         <nav className="sidebar__menu">
           <a href="#" className="active">Dashboard</a>
-          <a href="#">Projects</a>
-          <a href="#">Settings</a>
-          <a href="#">Profile</a>
         </nav>
 
         <div className="sidebar__footer">
-          <button className="btn size-full">Logout</button>
         </div>
       </aside>
     </>
